@@ -1,6 +1,11 @@
 import { createClient } from "redis";
 
-const client = createClient()
+const client = createClient({
+  socket: {
+    host: "192.168.1.254",
+    port: 6379,
+  },
+})
   .on("error", (err) => console.log("Redis Client Error", err))
   .connect();
 
